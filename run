@@ -1,17 +1,14 @@
 #!/usr/bin/env bash
 #run pi-hole as a docker service on macos
 
-wget -qO - https://raw.githubusercontent.com/pihole-macos/pihole-macos/master/checkbrew.sh | bash
-
-wget -qO - https://raw.githubusercontent.com/pihole-macos/pihole-macos/master/installDocker.sh | bash
-
-runPiHole() {
+run() {
 
     if hash brew 2>/dev/null; then
 
         brew update
         brew upgrade
-        brew install docker
+        brew install wget
+        brew cask install docker
         #docker --version
         open /Applications/Docker.app
 
@@ -41,6 +38,7 @@ runPiHole() {
     for i in $(seq 1 20); do
         if [ "$(docker inspect -f "{{.State.Health.Status}}" pihole)" == "healthy" ] ; then
             printf ' OK'
+            echo
             #exit 0
             return 0
         else
@@ -55,27 +53,38 @@ runPiHole() {
     done;
     else
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-        runPiHole
+        run
     fi
 }
-runPiHole
+run
 
 #ADD your docker commands here to config the container
+#docker exec -it pihole /bin/bash pihole -a -p
 
-changePW() {
-echo "resetPW"
-docker exec -it pihole /bin/bash pihole -a -p
-}
-changePW
+echo "Setting pi-hole password to 'unsecure' ! You MUST change this!"
+docker exec -it pihole /bin/bash pihole -a -p unsecure
+docker exec -it pihole /bin/bash pihole -g
+echo "Updated pi-hole blocklists!"
 
 #host machine config #or nested VM's config
 configNetwork(){
+echo "Configuring host network dns settings."
+echo "Enter the password to the host NOT the pi-hole instance!"
 networksetup -setdnsservers Wi-Fi 127.0.0.1
 networksetup -setdnsservers Ethernet 127.0.0.1
 #SEARCHDOMAIN=$(networksetup -getsearchdomains en0) #use this to preserve existing search domains
 SEARCHDOMAIN=duckduckgo.com
 sudo networksetup -setsearchdomains Ethernet $SEARCHDOMAIN # additionalDomain
 sudo networksetup -setsearchdomains Wi-Fi $SEARCHDOMAIN # additionalDomain
+
+#docker exec -it pihole /bin/bash pihole -h
+echo
+echo "Example docker syntax for interacting with the pi-hole container:"
+echo
+echo "docker exec -it pihole /bin/bash pihole -h"
+echo
+echo "password: unsecure"
+
 }
 configNetwork
 
