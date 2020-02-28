@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-checkbrew() {
+wget -qO - https://raw.githubusercontent.com/RandyMcMillan/IsolateMacOS/master/checkbrew.sh | bash
+
+
+installDocker() {
 
     if hash brew 2>/dev/null; then
         # Make sure we’re using the latest Homebrew.
@@ -15,10 +18,9 @@ checkbrew() {
         open /Applications/Docker.app
 
     else
-	#example - execute script with perl
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-        checkbrew
+        installDocker
 
     fi
 }
-checkbrew
+installDocker

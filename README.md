@@ -33,7 +33,7 @@ wget -qO - https://raw.githubusercontent.com/RandyMcMillan/IsolateMacOS/master/i
 
 ```
 
-## 2. Run a [pihole container](https://hub.docker.com/r/pihole/pihole)
+## 3. Run a [pihole container](https://hub.docker.com/r/pihole/pihole)
 
 - From the [command line:](file:///Applications/Utilities/Terminal.app)
 
@@ -41,3 +41,10 @@ wget -qO - https://raw.githubusercontent.com/RandyMcMillan/IsolateMacOS/master/i
 sudo wget -qO - https://raw.githubusercontent.com/RandyMcMillan/IsolateMacOS/master/runPiHole.sh| bash
 
 ```
+## 4. Check configuration
+
+- [http://127.0.0.1/admin/index.php](http://127.0.0.1/admin/index.php)
+
+## 5. Update Gravity
+
+- [http://127.0.0.1/admin/gravity.php](http://127.0.0.1/admin/gravity.php)

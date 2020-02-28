@@ -7,7 +7,7 @@ checkbrew() {
         brew update
         # Upgrade any already-installed formulae.
         brew upgrade
-	#install brew libs
+	#install wget
 	brew install wget
     else
 	# install brew and rerun 

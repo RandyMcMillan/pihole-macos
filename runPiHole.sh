@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 #run pi-hole as a docker service on macos
-changePW() {
-echo "resetPW"
-docker exec -it pihole /bin/bash pihole -a -p
-}
 
-run() {
+wget -qO - https://raw.githubusercontent.com/RandyMcMillan/IsolateMacOS/master/checkbrew.sh | bash
+
+wget -qO - https://raw.githubusercontent.com/RandyMcMillan/IsolateMacOS/master/installDocker.sh | bash
+
+runPiHole() {
 
     if hash brew 2>/dev/null; then
 
@@ -55,10 +55,10 @@ run() {
     done;
     else
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-        checkbrew
+        runPiHole
     fi
 }
-run
+runPiHole
 
 #ADD your docker commands here to config the container
 
