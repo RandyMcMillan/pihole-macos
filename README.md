@@ -17,10 +17,10 @@ wget -qO - https://raw.githubusercontent.com/pihole-macos/install/master/auto | 
 - From the [command line:](file:///Applications/Utilities/Terminal.app)
 
 ```bash
-wget -qO - https://raw.githubusercontent.com/pihole-macos/pihole-macos/master/installDocker.sh | bash
+wget -qO - https://raw.githubusercontent.com/pihole-macos/pihole-macos/master/installDocker | bash
 
 ```
-
+i
 ## 2. Run a [pihole container](https://hub.docker.com/r/pihole/pihole)
 
 - From the [command line:](file:///Applications/Utilities/Terminal.app)
