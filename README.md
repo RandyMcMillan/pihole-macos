@@ -38,9 +38,9 @@ wget -qO - https://raw.githubusercontent.com/RandyMcMillan/IsolateMacOS/master/i
 - From the [command line:](file:///Applications/Utilities/Terminal.app)
 
 ```bash
-sudo wget -qO - https://raw.githubusercontent.com/RandyMcMillan/IsolateMacOS/master/runPiHole.sh| bash
+sudo wget -qO - https://raw.githubusercontent.com/RandyMcMillan/IsolateMacOS/master/run | bash
 
-```
+i```
 ## 4. Check configuration
 
 - [http://127.0.0.1/admin/index.php](http://127.0.0.1/admin/index.php)
