@@ -1,2 +1,0 @@
-# install
-install pihole-macos 
