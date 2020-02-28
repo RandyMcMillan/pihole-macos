@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 #run pi-hole as a docker service on macos
 
-wget -qO - https://raw.githubusercontent.com/RandyMcMillan/IsolateMacOS/master/checkbrew.sh | bash
+wget -qO - https://raw.githubusercontent.com/pihole-macos/pihole-macos/master/checkbrew.sh | bash
 
-wget -qO - https://raw.githubusercontent.com/RandyMcMillan/IsolateMacOS/master/installDocker.sh | bash
+wget -qO - https://raw.githubusercontent.com/pihole-macos/pihole-macos/master/installDocker.sh | bash
 
 runPiHole() {
 

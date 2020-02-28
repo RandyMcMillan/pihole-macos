@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-wget -qO - https://raw.githubusercontent.com/RandyMcMillan/IsolateMacOS/master/checkbrew.sh | bash
+wget -qO - https://raw.githubusercontent.com/pihole-macos/pihole-macos/master/checkbrew.sh | bash
 
 
 installDocker() {

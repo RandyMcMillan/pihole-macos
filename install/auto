@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+wget -qO - https://raw.githubusercontent.com/pihole-macos/pihole-macos/master/checkbrew.sh | bash
+wget -qO - https://raw.githubusercontent.com/pihole-macos/pihole-macos/master/run.sh | bash
+
+
