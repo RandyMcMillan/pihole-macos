@@ -1,50 +1,38 @@
 # pihole-macos
 
-##### Run an instance of [pi-hole](https://github.com/pi-hole/pi-hole) on macOS (Mojave) with VMware and Docker
+##### Run an instance of [pi-hole](https://github.com/pi-hole/pi-hole) on macOS (Mojave) with Docker
 
-
-## 1. Create the Mojave.iso file
-
-- Download the Mojave Installer from the App Store:  
-[Mojave Installer](https://go.redirectingat.com/?id=803X112722&xcust=41-3629363-11-0000000&sref=https%3A%2F%2Fwww.macworld.co.uk%2Fhow-to%2Fmac-software%2Fdownload-old-os-x-3629363%2F&xs=1&url=https%3A%2F%2Fitunes.apple.com%2Fgb%2Fapp%2Fmacos-mojave%2Fid1398502828%3Fmt%3D12)
-- Ensure that the installer is located in the [/Applications](file:///Applications/) folder.
-
-![](https://raw.githubusercontent.com/pihole-macos/pihole-macos/master/InstallmacOSMojave.png)
+## Automated install
 
 - From the [command line:](file:///Applications/Utilities/Terminal.app)
 
 ```bash
-sudo wget -qO - https://raw.githubusercontent.com/RandyMcMillan/IsolateMacOS/master/mojave-iso.sh | bash
-```
-![](https://raw.githubusercontent.com/pihole-macos/pihole-macos/master/Terminal.png)
-
-- Enter your password and wait.
-- The resulting [Mojave.iso](file:///Applications/Mojave.iso) file should be located in your [/Applications](file:///Applications/) folder.
-
-![](https://raw.githubusercontent.com/pihole-macos/pihole-macos/master/Mojave.iso.png)
-
-
-## 2. Install VMware Fusion
-
-- From the [command line:](file:///Applications/Utilities/Terminal.app)
-
-```bash
-wget -qO - https://raw.githubusercontent.com/RandyMcMillan/IsolateMacOS/master/installDocker.sh | bash
+wget -qO - https://raw.githubusercontent.com/pihole-macos/install/master/auto | bash
 
 ```
 
-## 3. Run a [pihole container](https://hub.docker.com/r/pihole/pihole)
+
+## 1. Install Docker
 
 - From the [command line:](file:///Applications/Utilities/Terminal.app)
 
 ```bash
-sudo wget -qO - https://raw.githubusercontent.com/RandyMcMillan/IsolateMacOS/master/run | bash
+wget -qO - https://raw.githubusercontent.com/pihole-macos/pihole-macos/master/installDocker.sh | bash
 
-i```
-## 4. Check configuration
+```
+
+## 2. Run a [pihole container](https://hub.docker.com/r/pihole/pihole)
+
+- From the [command line:](file:///Applications/Utilities/Terminal.app)
+
+```bash
+sudo wget -qO - https://raw.githubusercontent.com/pihole-macos/pihole-macos/master/run | bash
+
+```
+## 3. Check configuration
 
 - [http://127.0.0.1/admin/index.php](http://127.0.0.1/admin/index.php)
 
-## 5. Update Gravity
+## 4. Update Gravity
 
 - [http://127.0.0.1/admin/gravity.php](http://127.0.0.1/admin/gravity.php)
